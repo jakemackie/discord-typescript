@@ -6,3 +6,6 @@ node_modules
 
 # build
 dist/
+
+# db migration(s)
+src/database/migrations/
