@@ -1,5 +1,5 @@
 # Typescript Template
-[Discord.js](https://discord.js.org/) is the leading library for interacting with the Discord API, this template allows you to write your own bot with complete typesafety before compiling to JavaScript.
+[Discord.js](https://discord.js.org/) is the leading library for interacting with the Discord API, this template allows you to write your own bot with complete type safety before compiling to JavaScript.
 
 ## GitHub Templates
 If you wish to simply copy this template into your own repository, you can do so by clicking the "Use this template" button on the top of this page. This will create a new repository with the contents of this template, ready to go! 🚀
