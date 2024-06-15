@@ -4,7 +4,7 @@ import { UserTable } from '../database/schema';
 
 module.exports = {
   beta: true,
-  name: 'db',
+  name: 'register',
   description: 'Add yourself to the database!',
   execute: async (client: Client, interaction: CommandInteraction) => {
     try {
