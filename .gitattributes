@@ -1,8 +1,2 @@
 # TypeScript
 *.ts linguist-language=TypeScript
-
-# Compiled JavaScript
-dist/ linguist-language=JavaScript
-
-# Ignore Node.js files
-node_modules/ linguist-generated=true
