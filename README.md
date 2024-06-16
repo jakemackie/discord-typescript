@@ -52,15 +52,21 @@ npm start
 If you want to use a Database with your bot, I've included [Drizzle ORM](https://orm.drizzle.team/) in the project readily setup for you. All you need to provide is a `DATABASE_URL` environment variable as seen in the `.env.example` file.
 > Note: I have setup drizzle for [PostgreSQL](https://www.postgresql.org/) but you can easily change this to your database of choice. Refer to the [Drizzle ORM documentation](https://orm.drizzle.team/docs/overview) for more information.
 
+<br />
+
 ```bash
 npm run db:generate
 ```
 Will check for schema changes and generate the necessary migrations.
 
+<br />
+
 ```bash
 npm run db:migrate
 ```
 Will run the migrations and update the database.
+
+<br />
 
 ```bash
 npm run db:studio
