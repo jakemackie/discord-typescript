@@ -1,9 +1,10 @@
+import 'dotenv/config';
 import { Client, ApplicationCommandData, GuildApplicationCommandManager } from 'discord.js';
 
 module.exports = async (client: Client) => {
   console.log(`${client.user?.username} is online.`);
 
-  const guildId = '1242634858296119357';
+  const guildId = process.env.GUILD_ID as string;
   const guild = client.guilds.cache.get(guildId);
   if (!guild) {
     console.error('Guild not found');
