@@ -1,2 +1,30 @@
-# TypeScript
-*.ts linguist-language=TypeScript
+* text=auto
+
+# typescript
+*.ts                text eol=lf
+*.d.ts              text eol=lf
+
+# json
+*.json              text eol=lf
+
+# markdown
+*.md                text eol=lf
+
+# environment
+*.env               text eol=lf
+
+# generated
+package-lock.json   text eol=lf
+yarn.lock           text eol=lf
+
+# git/config
+.gitattributes      text eol=lf
+.gitignore          text eol=lf
+.prettierrc         text eol=lf
+.prettierignore     text eol=lf
+
+# node
+node_modules/*      binary
+
+# build
+dist/*              binary
