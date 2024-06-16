@@ -36,7 +36,9 @@ module.exports = async (client: Client) => {
   // Register global commands
   try {
     await client.application?.commands.set(globalCommands);
-    console.log('Successfully registered global application commands.');
+    console.log(
+      `Successfully registered ${globalCommands.length} global commands.`,
+    );
   } catch (error) {
     console.error('Error registering global application commands:', error);
   }
@@ -44,7 +46,9 @@ module.exports = async (client: Client) => {
   // Register guild-specific commands
   try {
     await (guild.commands as GuildApplicationCommandManager).set(guildCommands);
-    console.log('Successfully registered guild-specific application commands.');
+    console.log(
+      `Successfully registered ${guildCommands.length} guild commands.`,
+    );
   } catch (error) {
     console.error(
       'Error registering guild-specific application commands:',
