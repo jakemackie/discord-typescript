@@ -11,7 +11,7 @@ Before you can start using this template, you'll need to have both [Git](https:/
 #### 1. Clone this repository
 > You'll need [Git](https://git-scm.com/) to do this.
 ```bash
-git clone https://github.com/jakemackie/d.ts-template
+git clone https://github.com/jakemackie/discord-typescript
 ```
 Now, let's enter the directory we just created.
 ```bash
