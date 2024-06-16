@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^20.14.2",
     "drizzle-kit": "^0.22.7",
+    "prettier": "3.3.2",
     "tsx": "^4.15.5"
   }
 }

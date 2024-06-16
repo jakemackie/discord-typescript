@@ -1,5 +1,9 @@
 import 'dotenv/config';
-import { Client, ApplicationCommandData, GuildApplicationCommandManager } from 'discord.js';
+import {
+  Client,
+  ApplicationCommandData,
+  GuildApplicationCommandManager,
+} from 'discord.js';
 
 module.exports = async (client: Client) => {
   console.log(`${client.user?.username} is online.`);
@@ -14,7 +18,7 @@ module.exports = async (client: Client) => {
   const globalCommands: ApplicationCommandData[] = [];
   const guildCommands: ApplicationCommandData[] = [];
 
-  client.commands.forEach(command => {
+  client.commands.forEach((command) => {
     const commandData: ApplicationCommandData = {
       name: command.name,
       description: command.description,
@@ -42,6 +46,9 @@ module.exports = async (client: Client) => {
     await (guild.commands as GuildApplicationCommandManager).set(guildCommands);
     console.log('Successfully registered guild-specific application commands.');
   } catch (error) {
-    console.error('Error registering guild-specific application commands:', error);
+    console.error(
+      'Error registering guild-specific application commands:',
+      error,
+    );
   }
 };

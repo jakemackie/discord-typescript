@@ -15,7 +15,9 @@ const client = new Client({
 client.commands = new Collection<string, any>();
 
 // Load Commands
-const commandFiles = readdirSync(join(__dirname, 'commands')).filter((file: string) => file.endsWith('.ts') || file.endsWith('.js'));
+const commandFiles = readdirSync(join(__dirname, 'commands')).filter(
+  (file: string) => file.endsWith('.ts') || file.endsWith('.js'),
+);
 
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
@@ -23,7 +25,9 @@ for (const file of commandFiles) {
 }
 
 // Load Events
-const eventFiles = readdirSync(join(__dirname, 'events')).filter((file: string) => file.endsWith('.ts') || file.endsWith('.js'));
+const eventFiles = readdirSync(join(__dirname, 'events')).filter(
+  (file: string) => file.endsWith('.ts') || file.endsWith('.js'),
+);
 
 for (const file of eventFiles) {
   const event = require(`./events/${file}`);
