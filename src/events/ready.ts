@@ -19,17 +19,12 @@ module.exports = async (client: Client) => {
   const guildCommands: ApplicationCommandData[] = [];
 
   client.commands.forEach((command) => {
-    const commandData: ApplicationCommandData = {
-      name: command.name,
-      description: command.description,
-    };
-
     if (command.beta) {
       console.log(`Registering beta command: ${command.name}`);
-      guildCommands.push(commandData);
+      guildCommands.push(command);
     } else {
       console.log(`Registering global command: ${command.name}`);
-      globalCommands.push(commandData);
+      globalCommands.push(command);
     }
   });
 
