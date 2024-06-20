@@ -10,5 +10,9 @@ dist/
 # db migration(s)
 src/database/migrations/
 
+# prettier config
+.prettierrc
+.prettierignore
+
 # jetbrains
 .idea/
