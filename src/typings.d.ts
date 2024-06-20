@@ -6,7 +6,9 @@ import { Client as DiscordClient, Collection } from 'discord.js';
 */
 declare module 'discord.js' {
   export interface Client extends DiscordClient {
+    // By adding a 'commands' type, it can be accessed as: client.commands.
     commands: Collection<string, any>;
+
     // Add your own types here...
   }
 }

@@ -1,24 +1,31 @@
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import path from 'path';
 import postgres from 'postgres';
 
+// Create a PostgreSQL client for migrations with a maximum of 1 connection
 const migrationClient = postgres(process.env.DATABASE_URL as string, {
   max: 1,
 });
 
-/*
-  Drizzle will create a migration folder when migrating the first time.
-  This folder will contain the SQL files that will be used to create the tables.
-  Honestly, make the path whever you want, but I like to keep it in the src folder.
-*/
+// Define your own migrations folder
+const drizzleMigrationsFolder = path.join(__dirname, 'migrations');
 
-async function main() {
+/**
+ * Function to handle database migrations.
+ *
+ * Drizzle will create a migration folder when migrating for the first time.
+ * This folder will contain the SQL files that will be used to create the tables.
+ */
+async function DrizzleMigration(folder: string = drizzleMigrationsFolder) {
   await migrate(drizzle(migrationClient), {
-    migrationsFolder: './src/database/migrations',
+    migrationsFolder: folder,
   });
 
+  // Gracefully end the connection once the migrations are complete
   await migrationClient.end();
 }
 
-main();
+// Perform the database migrations!
+DrizzleMigration();
