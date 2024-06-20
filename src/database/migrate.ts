@@ -18,7 +18,7 @@ const drizzleMigrationsFolder = path.join(__dirname, 'migrations');
  * Drizzle will create a migration folder when migrating for the first time.
  * This folder will contain the SQL files that will be used to create the tables.
  */
-async function DrizzleMigration(folder: string = drizzleMigrationsFolder) {
+async function DrizzleMigration(folder: string) {
   await migrate(drizzle(migrationClient), {
     migrationsFolder: folder,
   });
@@ -28,4 +28,4 @@ async function DrizzleMigration(folder: string = drizzleMigrationsFolder) {
 }
 
 // Perform the database migrations!
-DrizzleMigration();
+DrizzleMigration(drizzleMigrationsFolder);
