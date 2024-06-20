@@ -16,7 +16,7 @@ const migrationClient = postgres(process.env.DATABASE_URL as string, {
  * @param folder - The folder containing the migration files.
  * @returns - A promise that resolves when the migrations are complete.
  */
-async function DrizzleMigration(folder: string) {
+async function drizzleMigration(folder: string) {
   await migrate(drizzle(migrationClient), {
     migrationsFolder: folder,
   });
@@ -29,4 +29,4 @@ async function DrizzleMigration(folder: string) {
 const drizzleMigrationsFolder = path.join(__dirname, 'migrations');
 
 // Pass the folder to the migration function and perform the migrations!
-DrizzleMigration(drizzleMigrationsFolder);
+drizzleMigration(drizzleMigrationsFolder);
