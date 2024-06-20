@@ -19,12 +19,19 @@ async function getUserById(id: string) {
   if (!id) return;
 
   // Query the database for a single user record
-  const user = db.query.UserTable.findFirst({
-    where: (UserTable, { eq }) => eq(UserTable.id, id),
-  });
+  try {
+    const user = db.query.UserTable.findFirst({
+      where: (UserTable, { eq }) => eq(UserTable.id, id),
+    });
 
-  // Return the result
-  return user;
+    // Return the result
+    return user;
+  } catch (error) {
+    console.error(error);
+
+    // Return null if an error occurs
+    return null;
+  }
 }
 
 /**
@@ -33,15 +40,22 @@ async function getUserById(id: string) {
  */
 async function getUsers() {
   // Query the database for all user records
-  const users = await db
-    .select({
-      id: UserTable.id,
-      username: UserTable.username,
-    })
-    .from(UserTable);
+  try {
+    const users = await db
+      .select({
+        id: UserTable.id,
+        username: UserTable.username,
+      })
+      .from(UserTable);
 
-  // Return the result
-  return users;
+    // Return the result
+    return users;
+  } catch (error) {
+    console.error(error);
+
+    // Return null if an error occurs
+    return null;
+  }
 }
 
 module.exports = {
