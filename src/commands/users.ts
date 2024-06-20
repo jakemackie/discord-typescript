@@ -11,8 +11,8 @@ import { UserTable } from '../database/schema';
 
 /**
  * Get a user by their ID
- * @param id The ID of the user to fetch
- * @returns The user object or null if not found
+ * @param id - The ID of the user to fetch
+ * @returns - The user object or null if not found
  */
 async function getUserById(id: string) {
   // Don't query if parameter is empty
