@@ -8,7 +8,7 @@ This template allows you to write your own bot with complete type safety before 
 - [Typescript](https://www.typescriptlang.org/) (statically typed language)
 - [Node.js](https://nodejs.org/en/) (JavaScript runtime)
 - [Discord.js](https://discord.js.org/) (Discord API wrapper)
-- [PostgreSQL](https://www.postgresql.org/) (relational database)
+- [PostgresSQL](https://www.postgresql.org/) (relational database)
 - [Drizzle ORM](https://orm.drizzle.team/) (object-relational mapper)
 
 ### Cloning this repository
@@ -73,7 +73,7 @@ npm start
 If you want to use a Database with your bot, I've included [Drizzle ORM](https://orm.drizzle.team/) in the project readily setup for you. All you need to provide is a `DATABASE_URL` environment variable as seen in the `.env.example` file.
 <br />
 <br />
-I have setup drizzle for [PostgreSQL](https://www.postgresql.org/) but you can easily change this to your database of choice. Refer to the [Drizzle ORM documentation](https://orm.drizzle.team/docs/overview) for more information.
+I have set up drizzle for [PostgresSQL](https://www.postgresql.org/) but you can easily change this to your database of choice. Refer to the [Drizzle ORM documentation](https://orm.drizzle.team/docs/overview) for more information.
 
 Will check for schema changes and generate the necessary migrations.
 

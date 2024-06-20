@@ -4,7 +4,7 @@ import { migrate } from 'drizzle-orm/postgres-js/migrator';
 import path from 'path';
 import postgres from 'postgres';
 
-// Create a PostgreSQL client for migrations with a maximum of 1 connection
+// Create a PostgresSQL client for migrations with a maximum of 1 connection
 const migrationClient = postgres(process.env.DATABASE_URL as string, {
   max: 1,
 });

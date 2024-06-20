@@ -20,16 +20,10 @@ async function getUserById(id: string) {
 
   // Query the database for a single user record
   try {
-    const user = db.query.UserTable.findFirst({
+    return db.query.UserTable.findFirst({
       where: (UserTable, { eq }) => eq(UserTable.id, id),
     });
-
-    // Return the result
-    return user;
   } catch (error) {
-    console.error(error);
-
-    // Return null if an error occurs
     return null;
   }
 }
@@ -41,19 +35,13 @@ async function getUserById(id: string) {
 async function getUsers() {
   // Query the database for all user records
   try {
-    const users = await db
+    return await db
       .select({
         id: UserTable.id,
         username: UserTable.username,
       })
       .from(UserTable);
-
-    // Return the result
-    return users;
   } catch (error) {
-    console.error(error);
-
-    // Return null if an error occurs
     return null;
   }
 }

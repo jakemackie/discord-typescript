@@ -9,3 +9,6 @@ dist/
 
 # db migration(s)
 src/database/migrations/
+
+# jetbrains
+.idea/
