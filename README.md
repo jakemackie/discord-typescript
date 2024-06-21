@@ -5,11 +5,11 @@
 This template allows you to write your own bot with complete type safety before compiling to JavaScript. To use this repository, you can either use [GitHub Templates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project) or clone this repository.
 
 ## Tech Stack
-- [Typescript](https://www.typescriptlang.org/) (statically typed language)
-- [Node.js](https://nodejs.org/en/) (JavaScript runtime)
-- [Discord.js](https://discord.js.org/) (Discord API wrapper)
-- [PostgresSQL](https://www.postgresql.org/) (relational database)
-- [Drizzle ORM](https://orm.drizzle.team/) (object-relational mapper)
+- [Typescript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/)
+- [Discord.js](https://discord.js.org/)
+- [PostgresSQL](https://www.postgresql.org/)
+- [Drizzle ORM](https://orm.drizzle.team/)
 
 ### Cloning this repository
 
