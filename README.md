@@ -8,8 +8,11 @@ This template allows you to write your own bot with complete type safety before 
 - [Typescript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Discord.js](https://discord.js.org/)
+- [Postgres.js](https://github.com/porsager/postgres)
+- [Zod](https://zod.dev/)
 - [PostgresSQL](https://www.postgresql.org/)
 - [Drizzle ORM](https://orm.drizzle.team/)
+- [Docker](https://www.docker.com/)
 
 ### Cloning this repository
 
@@ -92,6 +95,36 @@ Will open a local GUI to view and manage your database, you can access this GUI 
 ```bash
 npm run db:studio
 ```
+
+### Containing with Docker
+
+> Database related command currently not working in Docker container. Fix coming soon.
+
+If you wish to run this bot in a container, you can use the provided `Dockerfile` to do so. Assuming you have [Docker](https://www.docker.com/) installed on your machine as well as some understanding of how to use it, you can build the container by running the following command:
+
+Make sure you are in the root of the project before running any of the following commands.
+
+#### 1. Build the image
+
+Docker will build the container from the `Dockerfile` in the root of the project, I have configured this file for you, you can change the image name if you wish to.
+
+Will build the image and tag it as `discord-typescript` with port 3000 exposed.
+
+```bash
+docker run -d -p 3000:3000 discord-typescript
+```
+
+#### 2. Run the image in a container
+
+Now that the image is built, you can run it in a container. Please note that if you gave the image a different name, you will need to change the name in the command below.
+
+Will run the container and start the bot application.
+
+```bash
+docker run discord-typescript
+```
+
+The container will run in the background and run your bot application. This is a great way to run the bot application and keep resources low on your machine/vps.
 
 ---
 
