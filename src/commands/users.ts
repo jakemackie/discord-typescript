@@ -56,10 +56,6 @@ module.exports = {
   ],
   execute: async (client: Client, interaction: ChatInputCommandInteraction) => {
     const mentionedUser = interaction.options.getUser('user') as User;
-    const err = await interaction.reply({
-      content: 'No users found in the database',
-      ephemeral: true,
-    });
 
     const embed = new EmbedBuilder()
       .setColor('#ffffff')
@@ -72,7 +68,7 @@ module.exports = {
 
     if (mentionedUser) {
       const user = await getUserById(mentionedUser.id);
-      if (!user) return err;
+      if (!user) return await interaction.reply({ content: 'No users found in the database', ephemeral: true });
       const { id, username } = user;
 
       embed.setDescription(`${userMention(id)} (${username})`);
@@ -81,7 +77,7 @@ module.exports = {
     }
 
     const users = await getUsers();
-    if (!users) return err;
+    if (!users) return await interaction.reply({ content: 'No users found in the database', ephemeral: true });
 
     let description: string = '';
     for (const user of users) {

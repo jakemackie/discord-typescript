@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import '../env';
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import { readdirSync } from 'fs';
 import { join } from 'path';
