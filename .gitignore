@@ -14,5 +14,5 @@ src/database/migrations/
 .prettierrc
 .prettierignore
 
-# jetbrains
-.idea/
+# .vscode
+.vscode/
