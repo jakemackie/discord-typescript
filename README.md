@@ -98,7 +98,7 @@ npm run db:studio
 
 ### Containing with Docker
 
-> Database related command currently not working in Docker container. Fix coming soon.
+> The `DATABASE_URL` environment variable assumes you are using an accessible PostgresSQL database, and not a local database.
 
 If you wish to run this bot in a container, you can use the provided `Dockerfile` to do so. Assuming you have [Docker](https://www.docker.com/) installed on your machine as well as some understanding of how to use it, you can build the container by running the following command:
 
@@ -108,10 +108,10 @@ Make sure you are in the root of the project before running any of the following
 
 Docker will build the container from the `Dockerfile` in the root of the project, I have configured this file for you, you can change the image name if you wish to.
 
-Will build the image and tag it as `discord-typescript` with port 3000 exposed.
+Will build the image and tag it as `discord-typescript`.
 
 ```bash
-docker run -d -p 3000:3000 discord-typescript
+docker build -t discord-typescript .
 ```
 
 #### 2. Run the image in a container
