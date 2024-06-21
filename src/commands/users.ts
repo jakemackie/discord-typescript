@@ -15,10 +15,7 @@ import { UserTable } from '../database/schema';
  * @returns - The user object or null if not found
  */
 async function getUserById(id: string) {
-  // Don't query if parameter is empty
   if (!id) return;
-
-  // Query the database for a single user record
   try {
     return db.query.UserTable.findFirst({
       where: (UserTable, { eq }) => eq(UserTable.id, id),
@@ -33,7 +30,6 @@ async function getUserById(id: string) {
  * @returns An array of user objects
  */
 async function getUsers() {
-  // Query the database for all user records
   try {
     return await db
       .select({
@@ -59,10 +55,12 @@ module.exports = {
     },
   ],
   execute: async (client: Client, interaction: ChatInputCommandInteraction) => {
-    // Assign the Command Option(s)
-    const user = interaction.options.getUser('user') as User;
+    const mentionedUser = interaction.options.getUser('user') as User;
+    const err = await interaction.reply({
+      content: 'No users found in the database',
+      ephemeral: true,
+    });
 
-    // Build the base embed
     const embed = new EmbedBuilder()
       .setColor('#ffffff')
       .setTimestamp()
@@ -72,47 +70,26 @@ module.exports = {
         iconURL: interaction.user.displayAvatarURL(),
       });
 
-    // If a user is specified, fetch the user from the database (single user)
-    if (user) {
-      // Attempt to fetch the user from the database
-      const result = await getUserById(user.id);
-
-      // If the user is not found, return an error message
-      if (!result)
-        return interaction.reply({
-          content: `User: ${userMention(user.id)} not found in the database`,
-          ephemeral: true,
-        });
-
-      // If the user is found, add the user's information to the embed
-      const { id, username } = result;
+    if (mentionedUser) {
+      const user = await getUserById(mentionedUser.id);
+      if (!user) return err;
+      const { id, username } = user;
 
       embed.setDescription(`${userMention(id)} (${username})`);
       embed.setFooter({ text: 'Single user fetched' });
-
-      // Send the embed
       return interaction.reply({ embeds: [embed], ephemeral: true });
     }
 
-    // If no user is specified, fetch all users from the database (multiple users)
     const users = await getUsers();
+    if (!users) return err;
 
-    // If no users are found, return an error message
-    if (!users)
-      return interaction.reply({
-        content: 'No users found in the database',
-        ephemeral: true,
-      });
-
-    // If users are found, add the user's information to the embed
     let description: string = '';
     for (const user of users) {
       description += `${userMention(user.id)} (${user.username})\n`;
     }
+
     embed.setDescription(description);
     embed.setFooter({ text: `${users.length} users fetched` });
-
-    // Send the embed
     return interaction.reply({ embeds: [embed], ephemeral: true });
   },
 };
