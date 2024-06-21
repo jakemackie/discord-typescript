@@ -14,6 +14,8 @@ This template allows you to write your own bot with complete type safety before 
 - [Drizzle ORM](https://orm.drizzle.team/)
 - [Docker](https://www.docker.com/)
 
+---
+
 ### Cloning this repository
 
 Before you can start using this template, you'll need to have both [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/) installed on your machine.
@@ -95,6 +97,8 @@ Will open a local GUI to view and manage your database, you can access this GUI 
 ```bash
 npm run db:studio
 ```
+
+---
 
 ### Containing with Docker
 
