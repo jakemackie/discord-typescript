@@ -68,7 +68,11 @@ module.exports = {
 
     if (mentionedUser) {
       const user = await getUserById(mentionedUser.id);
-      if (!user) return await interaction.reply({ content: 'No users found in the database', ephemeral: true });
+      if (!user)
+        return await interaction.reply({
+          content: 'No users found in the database',
+          ephemeral: true,
+        });
       const { id, username } = user;
 
       embed.setDescription(`${userMention(id)} (${username})`);
@@ -77,7 +81,11 @@ module.exports = {
     }
 
     const users = await getUsers();
-    if (!users) return await interaction.reply({ content: 'No users found in the database', ephemeral: true });
+    if (!users)
+      return await interaction.reply({
+        content: 'No users found in the database',
+        ephemeral: true,
+      });
 
     let description: string = '';
     for (const user of users) {

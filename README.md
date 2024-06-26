@@ -5,6 +5,7 @@
 This template allows you to write your own bot with complete type safety before compiling to JavaScript. To use this repository, you can either use [GitHub Templates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project) or clone this repository.
 
 ## Tech Stack
+
 - [Typescript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Discord.js](https://discord.js.org/)
