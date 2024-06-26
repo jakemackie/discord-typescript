@@ -2,8 +2,8 @@ import { z } from 'zod';
 import 'dotenv/config';
 
 const environmentSchema = z.object({
-  TOKEN: z.string(),
-  GUILD_ID: z.string(),
+  TOKEN: z.string().min(10),
+  GUILD_ID: z.string().min(10),
   DATABASE_URL: z.string().url().optional(),
 })
 
