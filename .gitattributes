@@ -13,12 +13,6 @@
 # environment
 *.env               text eol=lf
 
-# generated
-package-lock.json   text eol=lf
-yarn.lock           text eol=lf
-
 # git/config
 .gitattributes      text eol=lf
 .gitignore          text eol=lf
-.prettierrc         text eol=lf
-.prettierignore     text eol=lf
